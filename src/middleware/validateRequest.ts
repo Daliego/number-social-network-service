@@ -9,12 +9,14 @@ export const validateRequest = (schema: AnyZodObject) => {
         body: req.body,
         query: req.query,
         params: req.params,
-        headers: req.headers
+        headers: req.headers,
       });
       next();
     } catch (error) {
       if (error instanceof ZodError) {
-        next(new ValidationError(error.errors[0]?.message || "Validation failed"));
+        next(
+          new ValidationError(error.errors[0]?.message || "Validation failed")
+        );
         return;
       }
       next(new ValidationError("Invalid request data"));
