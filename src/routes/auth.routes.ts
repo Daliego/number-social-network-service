@@ -139,60 +139,6 @@ router.post("/logout", requireAuth, authController.logout);
 
 /**
  * @swagger
- * /auth/verify-email/{token}:
- *   get:
- *     summary: Verify email address
- *     tags: [Auth]
- *     parameters:
- *       - in: path
- *         name: token
- *         required: true
- *         schema:
- *           type: string
- *         description: Email verification token
- *     responses:
- *       200:
- *         description: Email verified successfully
- *       400:
- *         description: Invalid token
- *       404:
- *         description: Token not found
- */
-router.get("/verify-email/:token", validateRequest(verifyEmailSchema), authController.verifyEmail);
-
-/**
- * @swagger
- * /auth/send-email-verification:
- *   post:
- *     summary: Resend verification email
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - email
- *             properties:
- *               email:
- *                 type: string
- *                 format: email
- *     responses:
- *       200:
- *         description: Verification email sent
- *       429:
- *         description: Too many requests
- */
-router.post(
-  "/send-email-verification",
-  verificationLimiter,
-  validateRequest(resendVerificationSchema),
-  authController.resendVerification
-);
-
-/**
- * @swagger
  * /auth/forgot-password:
  *   post:
  *     summary: Request password reset

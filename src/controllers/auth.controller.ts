@@ -39,20 +39,6 @@ export class AuthController extends BaseController {
     });
   };
 
-  verifyEmail = (req: Request, res: Response, next: NextFunction): void => {
-    this.handleRequest(req, res, next, async () => {
-      const { token } = req.params;
-      return await this.authService.verifyEmail(token);
-    });
-  };
-
-  resendVerification = (req: Request, res: Response, next: NextFunction): void => {
-    this.handleRequest(req, res, next, async () => {
-      const { email } = req.body;
-      return await this.authService.resendVerificationEmail(email);
-    });
-  };
-
   forgotPassword = (req: Request, res: Response, next: NextFunction): void => {
     this.handleRequest(req, res, next, async () => {
       const { email } = req.body;
