@@ -4,7 +4,7 @@ import { ErrorCode } from "@/utils/errorCodes";
 import { ENV } from "@/config/env";
 
 export class ErrorMonitoringService {
-  private static instance: ErrorMonitoringService;
+  private static instance: ErrorMonitoringService
 
   private constructor() {
     process.on("uncaughtException", this.handleUncaughtException);
@@ -26,9 +26,6 @@ export class ErrorMonitoringService {
     } else {
       logger.error(errorLog);
     }
-
-    // Here you could add integration with external error monitoring services
-    // like Sentry, New Relic, etc.
   }
 
   private formatError(error: Error | AppError, request?: any) {
