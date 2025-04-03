@@ -13,7 +13,7 @@ COPY tsconfig*.json ./
 COPY .env.example ./.env
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm ci
 
 # Copy source code
 COPY . .
