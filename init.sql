@@ -1,0 +1,2 @@
+GRANT ALL PRIVILEGES ON *.* TO 'express-boilerplate'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;

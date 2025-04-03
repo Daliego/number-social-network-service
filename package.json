@@ -1,5 +1,5 @@
 {
-  "name": "express-boilerplate",
+  "name": "test-number-social-network",
   "version": "1.0.0",
   "main": "index.ts",
   "license": "MIT",
@@ -16,13 +16,7 @@
     "migrate:dev": "npx prisma migrate dev",
     "migrate": "npx prisma migrate deploy",
     "generate": "npx prisma generate",
-    "studio": "npx prisma studio",
-    "test": "vitest",
-    "test:watch": "jest --watch",
-    "test:coverage": "vitest run --coverage",
-    "test:e2e": "jest --config jest.e2e.config.ts",
-    "lint": "eslint . --ext .ts",
-    "format": "prettier --write \"src/**/*.ts\""
+    "studio": "npx prisma studio"
   },
   "_moduleAliases": {
     "@": "dist/src"
