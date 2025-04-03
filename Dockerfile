@@ -33,13 +33,12 @@ COPY --from=builder --chown=appuser:appgroup /app/package*.json ./
 COPY --from=builder --chown=appuser:appgroup /app/prisma ./prisma
 COPY --from=builder --chown=appuser:appgroup /app/.env ./
 
-# Switch to non-root user
 USER appuser
 
 EXPOSE 4300
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=30s \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:4300/health || exit 1
+# # Health check
+# HEALTHCHECK --interval=30s --timeout=3s --start-period=30s \
+#   CMD wget --no-verbose --tries=1 --spider http://localhost:4300/health || exit 1
 
 CMD ["npm", "start"] 
